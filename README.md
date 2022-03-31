@@ -1,7 +1,7 @@
 Decimal Internet Time
 ---------------------
 
-An idea from [anarkat](https://hackers.town/anarkat).
+An idea from [anarkat](https://hackers.town/@anarkat).
 
 Proposed standard by [djeekay](https://djeekay.net/dit/).
 
