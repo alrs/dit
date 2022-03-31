@@ -1,0 +1,7 @@
+dit
+---
+
+cli program to print current Decimal Internet Time.
+
+By default, dit prints to DEC:DECIM precision. To print with desek precision,
+use the -p flag.
