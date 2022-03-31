@@ -24,8 +24,11 @@ ditcli-$(SHA)/%/dit:
 	mkdir -p `echo $@ | awk -F/ '{print $$1 FS $$2}'`
 	go build -ldflags="-X 'main.sha=$(SHA)' -X 'main.buildDate=$(DATE)'" -o $@
 
-tar: all $(TARNAME)/README
+tar: all $(TARNAME)/README $(TARNAME)/LICENSE
 	tar czv $(TARNAME) > $(TARNAME).tar.gz
 
 $(TARNAME)/README:
 	cp README $(TARNAME)
+
+$(TARNAME)/LICENSE:
+	cp ../../LICENSE $(TARNAME)
