@@ -47,10 +47,10 @@ func TestDesekOOB(t *testing.T) {
 	for _, ou := range underOver {
 		_, err := NewDIT(0, 0, ou)
 		switch et := err.(type) {
-		case ErrDecimOOB:
+		case ErrDesekOOB:
 			return
 		default:
-			t.Fatalf("expected ErrDecimOOB for %d, got %T", ou, et)
+			t.Fatalf("expected ErrDesekOOB for %d, got %T", ou, et)
 		}
 	}
 }

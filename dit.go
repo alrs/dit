@@ -123,7 +123,7 @@ func NewDIT(dec, decim, desek int) (DIT, error) {
 		return 0, ErrDecimOOB{decim}
 	}
 	if desek > maxDesek || desek < 0 {
-		return 0, ErrDecimOOB{desek}
+		return 0, ErrDesekOOB{desek}
 	}
 	return DIT(int(dec*10000) + int(decim*100) + int(desek)), nil
 }
