@@ -4,10 +4,10 @@ DATE := $(shell date -u)
 LDFLAGS := -ldflags="-X 'main.sha=$(SHA)' -X 'main.buildDate=$(DATE)'"
 
 help:
-	@echo make all: build all binaries
-	@echo make clean: delete all built binaries
-	@echo make tar: build release tarball
-	@echo make install: build and install dit on local GOPATH
+	@echo make all:		build all binaries
+	@echo make clean:	delete all built binaries
+	@echo make tar:		build release tarball
+	@echo make install:	build and install dit on local GOPATH
  
 .PHONY: clean
 clean:
@@ -23,7 +23,6 @@ all: \
 	$(TARNAME)/windows/amd64/dit
  
 ditcli-$(SHA)/%/dit:
-	mkdir -p $*
 	GOOS=$(shell echo $* | awk -F/ '{print $$1}')	\
 	GOARCH=$(shell echo $* | awk -F/ '{print $$2}')	\
 	go build $(LDFLAGS) -o $@
