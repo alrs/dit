@@ -11,7 +11,7 @@ import (
 var precise bool
 
 func init() {
-	flag.BoolVar(&precise, "p", false, "show desek")
+	flag.BoolVar(&precise, "p", false, "show desek precision")
 	flag.Parse()
 }
 
