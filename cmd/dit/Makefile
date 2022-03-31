@@ -22,6 +22,8 @@ all: \
  
 ditcli-$(SHA)/%/dit:
 	mkdir -p `echo $@ | awk -F/ '{print $$1 FS $$2}'`
+	GOOS=$(shell echo $* | awk -F/ '{print $$1}') \
+	GOARCH=$(shell echo $* | awk -F/ '{print $$2}') \
 	go build -ldflags="-X 'main.sha=$(SHA)' -X 'main.buildDate=$(DATE)'" -o $@
 
 tar: all $(TARNAME)/README
