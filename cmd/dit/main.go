@@ -21,6 +21,6 @@ func main() {
 	if precise {
 		fmt.Println(d)
 	} else {
-		fmt.Printf("%d:%d\n", d.Dec(), d.Decim())
+		fmt.Printf("%d.%d\n", d.Dec(), d.Decim())
 	}
 }
