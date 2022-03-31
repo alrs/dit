@@ -1,6 +1,7 @@
 SHA := $(shell git rev-parse --short HEAD)
 TARNAME := ditcli-$(SHA)
 DATE := $(shell date -u)
+LDFLAGS := -ldflags="-X 'main.sha=$(SHA)' -X 'main.buildDate=$(DATE)'"
 
 help:
 	@echo make all: build all binaries
@@ -21,10 +22,15 @@ all: \
 	$(TARNAME)/windows/amd64/dit	
  
 ditcli-$(SHA)/%/dit:
-	mkdir -p `echo $@ | awk -F/ '{print $$1 FS $$2}'`
+#	mkdir -p `echo $@ | awk -F/ '{print $$1 FS $$2}'`
+	mkdir -p $*
 	GOOS=$(shell echo $* | awk -F/ '{print $$1}') \
 	GOARCH=$(shell echo $* | awk -F/ '{print $$2}') \
-	go build -ldflags="-X 'main.sha=$(SHA)' -X 'main.buildDate=$(DATE)'" -o $@
+	go build $(LDFLAGS) -o $@
+
+.PHONY: install
+install:
+	go install $(LDFLAGS) ./...
 
 tar: all $(TARNAME)/README $(TARNAME)/LICENSE
 	tar czv $(TARNAME) > $(TARNAME).tar.gz

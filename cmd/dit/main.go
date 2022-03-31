@@ -15,7 +15,7 @@ var sha string
 var buildDate string
 
 func init() {
-	flag.BoolVar(&showVer, "v", false, "show version")
+	flag.BoolVar(&showVer, "v", false, "print version and exit")
 	flag.BoolVar(&precise, "p", false, "show desek precision")
 	flag.Parse()
 	if showVer {
