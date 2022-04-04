@@ -103,7 +103,7 @@ func (d *DIT) Desek() Desek {
 
 // String represents a DIT in DD.MM.SS notation.
 func (d DIT) String() string {
-	return fmt.Sprintf("%d.%d.%d", d.Dec(), d.Decim(), d.Desek())
+	return fmt.Sprintf("%d.%02d.%02d", d.Dec(), d.Decim(), d.Desek())
 }
 
 // TimeToDIT coverts a time.Time into DIT.
