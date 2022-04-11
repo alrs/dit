@@ -83,3 +83,15 @@ func TestTimeToDIT(t *testing.T) {
 		}
 	}
 }
+
+func TestDITString(t *testing.T) {
+	d, err := NewDIT(8, 7, 6)
+	if err != nil {
+		t.Fatal(err)
+	}
+	expected := "8.07.06"
+	got := d.String()
+	if got != expected {
+		t.Fatalf("got:%q expected:%q", got, expected)
+	}
+}
